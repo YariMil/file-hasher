@@ -13,16 +13,34 @@ public class FileHasher {
         try {
             File javaFileSystem = new File("JavaFileSystem");
             javaFileSystem.mkdir();
-            String[] fileNames = new String[] {"notes.txt", "data.txt", "log.txt"};
+            File[] fileNames = new File[] {new File("JavaFileSystem/notes.txt"),
+                    new File("JavaFileSystem/data.txt"), new File("JavaFileSystem/log.txt")};
             for (int i = 0; i < fileNames.length; i++) {
-                File newFile = new File("JavaFileSystem/" + fileNames[i]);
-                newFile.createNewFile();
-                FileWriter writerForFile = new FileWriter(newFile);
-                writerForFile.write("This is " + fileNames[i] + ". Hooray! Yipee! I love it!");
+                fileNames[i].createNewFile();
+                FileWriter writerForFile = new FileWriter(fileNames[i]);
+                writerForFile.write("This is " + fileNames[i].getName()
+                        + ". Hooray! Yipee! I love it! Actually, I should back this up.");
                 writerForFile.close();
             }
-            // TODO (FH-3): read each file back, print it, and write all three into
-            // Backup/backup.txt
+            StringBuilder backupString = new StringBuilder();
+            for (int i = 0; i < fileNames.length; i++) {
+                FileReader readerForFile = new FileReader(fileNames[i]);
+                while (readerForFile.ready()) {
+                    char c = (char) readerForFile.read();
+                    backupString.append(c);
+                    System.out.print(c);
+                }
+                System.out.println();
+                backupString.append("\n");
+                readerForFile.close();
+            }
+            File backupDir = new File("Backup");
+            backupDir.mkdir();
+            File backupFile = new File("Backup/backup.txt");
+            FileWriter backupWriter = new FileWriter(backupFile);
+            backupFile.createNewFile();
+            backupWriter.write(backupString.toString());
+            backupWriter.close();
             // TODO (FH-4): print each file's name next to hashFile(path)
         } catch (IOException e) {
             System.out.println("File error: " + e.getMessage());
