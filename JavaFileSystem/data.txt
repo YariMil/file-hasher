@@ -1,1 +1,1 @@
-This is data.txt. Hooray! Yipee! I love it! Actually, I should back this up.
+Did you know hashing is awesome because it puts any input into a 64 hex string?
