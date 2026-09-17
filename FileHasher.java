@@ -13,11 +13,18 @@ public class FileHasher {
         try {
             File javaFileSystem = new File("JavaFileSystem");
             javaFileSystem.mkdir();
-            // TODO (FH-2): create notes.txt, data.txt, log.txt and write a sentence into each
+            String[] fileNames = new String[] {"notes.txt", "data.txt", "log.txt"};
+            for (int i = 0; i < fileNames.length; i++) {
+                File newFile = new File("JavaFileSystem/" + fileNames[i]);
+                newFile.createNewFile();
+                FileWriter writerForFile = new FileWriter(newFile);
+                writerForFile.write("This is " + fileNames[i] + ". Hooray! Yipee! I love it!");
+                writerForFile.close();
+            }
             // TODO (FH-3): read each file back, print it, and write all three into
             // Backup/backup.txt
             // TODO (FH-4): print each file's name next to hashFile(path)
-        } catch (Exception e) {
+        } catch (IOException e) {
             System.out.println("File error: " + e.getMessage());
         }
     }
