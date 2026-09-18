@@ -38,7 +38,7 @@ public class FileHasher {
                 backupString.append("\n");
                 readerForFile.close();
             }
-            File backupDir = new File("Backup");
+            File backupDir = new File("JavaFileSystem/Backup");
             backupDir.mkdir();
             File backupFile = new File("Backup/backup.txt");
             FileWriter backupWriter = new FileWriter(backupFile);
