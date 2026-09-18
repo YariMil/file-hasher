@@ -40,7 +40,7 @@ public class FileHasher {
             }
             File backupDir = new File("JavaFileSystem/Backup");
             backupDir.mkdir();
-            File backupFile = new File("Backup/backup.txt");
+            File backupFile = new File("JavaFileSystem/Backup/backup.txt");
             FileWriter backupWriter = new FileWriter(backupFile);
             backupFile.createNewFile();
             backupWriter.write(backupString.toString());
@@ -54,6 +54,14 @@ public class FileHasher {
             System.out.println("notes.txt: " + notesHex);
             System.out.println("data.txt: " + dataHex);
             System.out.println("log.txt: " + logHex);
+
+            System.out.println("== Testing empty ==");
+            System.out.println("empty.txt: " + hashFile("JavaFileSystem/empty.txt"));
+            FileWriter hashChanger = new FileWriter("JavaFileSystem/notes.txt");
+            hashChanger.write('c');
+            System.out.println("Changed 1 character in notes.txt!");
+            hashChanger.close();
+            System.out.println("new notes.txt: " + hashFile("JavaFileSystem/notes.txt"));
         } catch (IOException e) {
             System.out.println("File error: " + e.getMessage());
         }

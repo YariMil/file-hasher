@@ -1,0 +1,8 @@
+# Hash Report
+
+notes.txt from Java: de7707a553cfe500f8e5f4778bffc9f78fd84eba741d3eed93abc81262829390
+notes.txt from the terminal: de7707a553cfe500f8e5f4778bffc9f78fd84eba741d3eed93abc81262829390
+Terminal command used: shasum -a 256 JavaFileSystem/notes.txt
+Empty file, both ways: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+notes.txt after changing one character, from Java: 2e7d2c03a9507ae265ecf5b5356885a53393a2029d241394997265a1a25aefc6
+notes.txt after changing one character, from the terminal: 2e7d2c03a9507ae265ecf5b5356885a53393a2029d241394997265a1a25aefc6

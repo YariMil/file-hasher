@@ -1,0 +1,3 @@
+Abracadabra, this is notes.txt, built for hashing!
+Did you know hashing is awesome because it puts any input into a 64 hex string?
+Even in this log.txt, a hash function still works!
